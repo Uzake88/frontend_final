@@ -1,0 +1,9 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(root)/(home)/page": "app/(root)/(home)/page.js",
+  "/(root)/(home)/pricing/page": "app/(root)/(home)/pricing/page.js",
+  "/(root)/(home)/find-tutor/page": "app/(root)/(home)/find-tutor/page.js",
+  "/(root)/(home)/become-tutor/page": "app/(root)/(home)/become-tutor/page.js",
+  "/(root)/(home)/contact/page": "app/(root)/(home)/contact/page.js",
+  "/(root)/(home)/about/page": "app/(root)/(home)/about/page.js"
+}
