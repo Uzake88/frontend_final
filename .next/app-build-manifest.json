@@ -1,5 +1,10 @@
 {
   "pages": {
+    "/(root)/(home)/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(root)/(home)/contact/page.js"
+    ],
     "/(root)/(home)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -16,16 +21,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(root)/(home)/page.js"
     ],
-    "/(root)/(home)/pricing/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/(home)/pricing/page.js"
-    ],
-    "/(root)/(home)/find-tutor/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/(home)/find-tutor/page.js"
-    ],
     "/(root)/(home)/become-tutor/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -36,10 +31,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(root)/(home)/about/page.js"
     ],
-    "/(root)/(home)/contact/page": [
+    "/(root)/(home)/pricing/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(root)/(home)/contact/page.js"
+      "static/chunks/app/(root)/(home)/pricing/page.js"
+    ],
+    "/(root)/(home)/find-tutor/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(root)/(home)/find-tutor/page.js"
+    ],
+    "/(root)/(home)/tutor/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(root)/(home)/tutor/[id]/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",

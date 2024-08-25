@@ -1,28 +1,29 @@
-import Navbar from '@/components/ui/Navbar'
-import Sidebar from '@/components/ui/Sidebar'
-import React, { ReactNode } from 'react'
+'use client';
 
-const HomeLayout = ({children}: {children: ReactNode}) => {
+import Navbar from '@/components/ui/Navbar';
+import Sidebar from '@/components/ui/Sidebar';
+import React, { ReactNode, useState } from 'react';
+
+const HomeLayout = ({ children }: { children: ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <main className ='relative'>
-        <Navbar/>
+    <main className="relative">
+      <Navbar />
+      <div className="flex">
+        <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+        <section className={`flex min-h-screen flex-1 flex-col px-6 pb-6 pt-28 transition-transform duration-300 ease-in-out ${isOpen ? 'ml-64' : 'ml-0'}`}>
+          <div className="w-full">
+            {children}
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+};
 
-        <div className = 'flex'>
-            <Sidebar/>
-            <section className = "flex min-h-screen flex-1 flex-col px-6 pb-6 pt-28 max-md:pb-14 sm: px-14">
-                <div className="w-full">
-                    {children}
-                </div>
-
-            </section>
-
-        </div>
-        
-        
-        {children}
-        
-        </main>
-  )
-}
-
-export default HomeLayout
+export default HomeLayout;
