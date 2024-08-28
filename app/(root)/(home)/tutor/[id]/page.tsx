@@ -1,9 +1,10 @@
-// app/(root)/(home)/tutor/[id]/page.tsx
-
 "use client"; // Ensure this line is at the top of the file
 
-import React from 'react';
+import React, { useState } from 'react';
 import { notFound } from 'next/navigation'; // Import this to handle non-existent IDs
+import { useStreamVideoClient } from "@stream-io/video-react-sdk"; // Import the Stream Video client
+import { useUser } from "@clerk/nextjs"; // Import Clerk user for authentication
+import MeetingTypeList from "@/components/MeetingTypeList"; // Import MeetingTypeList
 
 interface Tutor {
   name: string;
@@ -13,10 +14,8 @@ interface Tutor {
   subject: string;
   status: string;
   contact: string;
-  videoCallLink: string;
 }
 
-// Sample tutor data (replace this with your actual data fetching logic)
 const tutorData: Record<string, Tutor> = {
   1: {
     name: 'John Doe',
@@ -26,7 +25,6 @@ const tutorData: Record<string, Tutor> = {
     subject: 'Mathematics',
     status: 'Available',
     contact: 'john@example.com',
-    videoCallLink: 'https://your-video-call-link.com/johndoe',
   },
   2: {
     name: 'Jane Smith',
@@ -36,13 +34,11 @@ const tutorData: Record<string, Tutor> = {
     subject: 'English',
     status: 'Busy',
     contact: 'jane@example.com',
-    videoCallLink: 'https://your-video-call-link.com/janesmith',
   },
 };
 
 const TutorProfile = ({ params }: { params: { id: string } }) => {
   const id = params.id; // Get the ID from the params
-
   const tutor = tutorData[id];
 
   // Handle non-existent tutor ID
@@ -63,9 +59,7 @@ const TutorProfile = ({ params }: { params: { id: string } }) => {
       </p>
 
       <h2 className="text-xl font-bold mt-6">Start a Video Call</h2>
-      <a href={tutor.videoCallLink} target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-500 text-white rounded-lg px-4 py-2 mt-2 hover:bg-blue-600 transition">
-        Join Video Call
-      </a>
+      <MeetingTypeList tutorId={id} /> {/* Pass tutor ID to MeetingTypeList */}
     </div>
   );
 };

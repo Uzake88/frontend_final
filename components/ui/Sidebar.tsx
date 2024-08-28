@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link'; 
-import { usePathname } from 'next/navigation'; 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { MenuIcon, XIcon } from 'lucide-react';
 
@@ -19,7 +19,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
-    const pathname = usePathname();
+    const pathname = usePathname() ?? ""; // Provide fallback to empty string if pathname is null
 
     return (
         <div className="relative">
@@ -53,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             >
                 <div className='flex flex-col gap-6'>
                     {sidebarLinks.map((link) => {
-                        const isActive = pathname === link.route || pathname.startsWith(link.route);
+                        const isActive = pathname === link.route || pathname.startsWith('${link.route}/');
 
                         return (
                             <Link 
